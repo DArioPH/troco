@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Concesionario de Coches</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="header-top">
+          <a href="/index.html">
+            <img src="logoRoyale.png" alt="Logo" class="logo" />
+          </a>
+        </div>
+
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="HíbridosyElectricos.html" class="nav-link"
+                >Coches Eléctricos e Híbridos</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a href="compra-financiacion.html" class="nav-link"
+                >Compra y Financiación</a
+              >
+              <div class="dropdown-menu">
+                <a href="financiacion.html">Financiación</a>
+                <a href="ofertas.html">Ofertas Especiales</a>
+                <a href="#">Seminuevos</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Servicios y Accesorios</a>
+            </li>
+            <li class="nav-item">
+              <a href="Motor&Tecnología.html" class="nav-link"
+                >Motor & Tecnología</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="buscador-container">
+      <input
+        type="text"
+        id="buscadorMarca"
+        placeholder="Buscar por marca (ej: Audi, BMW...)"
+      />
+    </section>
+    <main class="car-grid">
+      <div class="car-card">
+        <img src="rs3.webp" alt="Audi RS3" />
+        <h2>Audi RS3</h2>
+        <p>Precio: 60.000€</p>
+        <a href="audirs3.html" class="btn-ver-mas">Ver más</a>
+      </div>
+
+      <div class="car-card">
+        <img src="m3.webp" alt="BMW M3" />
+        <h2>BMW M3</h2>
+        <p>Precio: 75.000€</p>
+        <a href="BmwM3.html" class="btn-ver-mas">Ver más</a>
+      </div>
+
+      <div class="car-card">
+        <img src="amgc63.webp" alt="Mercedes AMG C63" />
+        <h2>Mercedes AMG C63</h2>
+        <p>Precio: 80.000€</p>
+        <a href="amgc63.html" class="btn-ver-mas">Ver más</a>
+      </div>
+      <div class="car-card">
+        <img src="porche911carrera.jpg" alt="Porsche 911 Carrera" />
+        <h2>Porsche 911 Carrera</h2>
+        <p>Precio: 120.000€</p>
+        <a href="911Carrera.html" class="btn-ver-mas">Ver más</a>
+      </div>
+
+      <div class="car-card">
+        <img src="lambohuracan-vistafrontal.jpg" alt="Lamborghini Huracán" />
+        <h2>Lamborghini Huracán</h2>
+        <p>Precio: 250.000€</p>
+        <a href="Lambo.html" class="btn-ver-mas">Ver más</a>
+      </div>
+      <div class="car-card">
+        <img src="nissangtr.webp" alt="Nissan GT-R" />
+        <h2>Nissan GT-R</h2>
+        <p>Precio: 110.000€</p>
+        <a href="NissanGTR.html" class="btn-ver-mas">Ver más</a>
+      </div>
+    </main>
+    <script>
+      const buscador = document.getElementById("buscadorMarca");
+      const tarjetas = document.querySelectorAll(".car-card");
+
+      buscador.addEventListener("input", function () {
+        const texto = buscador.value.toLowerCase();
+
+        tarjetas.forEach((tarjeta) => {
+          const titulo = tarjeta.querySelector("h2").textContent.toLowerCase();
+          if (titulo.includes(texto)) {
+            tarjeta.style.display = "block";
+          } else {
+            tarjeta.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lamborghini Huracán - Royale Motors</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .gallery img {
+        width: 300px;
+        margin: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+      .video-container {
+        margin: 20px 0;
+        max-width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a href="/index.html">
+          <img src="logoRoyale.png" alt="Logo" class="logo" />
+        </a>
+        <h1 class="modelo-title"> Lamborghini Huracán</h1>
+      </div>
+    </header>
+
+    <main>
+      <div class="content-container">
+        <section class="gallery">
+          <img
+            src="lambohuracan-vistafrontal.jpg"
+            alt="Lamborghini Huracán - vista frontal"/>
+          <img src="lambohuracan-vistalateral.jpg" alt="Lamborghini Huracán - vista lateral" />
+          <img src="lambohuracan-interior.jpg" alt="Lamborghini Huracán- interior" />
+          <img src="lambohuracan.jpg" alt="Lamborghini Huracán - Home" />
+        </section>
+
+        <section class="content-container">
+            <div class="video-wrapper">
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/yr3MaSXxPxw?si=fwQ8Bl4z5uXaAStN"
+            title="Lamborghini Huracán"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </section>
+
+        <section class="info-text">
+          <h2>Características principales</h2>
+          <p>
+            El Lamborghini Huracán es sinónimo de potencia y diseño agresivo. Su motor V10 atmosférico entrega una respuesta inmediata y un sonido inconfundible.
+          </p>
+          <p>
+            Con líneas afiladas y un enfoque en la aerodinámica, el Huracán combina rendimiento extremo con una presencia imponente en carretera y circuito.
+          </p>
+        </section>
+
+        <a href="/index.html" class="btn-volver">Volver al catálogo</a>
+        </div>
+      </div>
+    </main>
+    <!-- Modal para ampliar imagen con navegación -->
+    <div id="modal" class="modal">
+      <span id="close">&times;</span>
+      <span id="prev" class="nav-arrow">&#10094;</span>
+      <span id="next" class="nav-arrow">&#10095;</span>
+      <img class="modal-content" id="modal-img" />
+      <div id="caption"></div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modal-img");
+      const captionText = document.getElementById("caption");
+      const closeBtn = document.getElementById("close");
+      const prevBtn = document.getElementById("prev");
+      const nextBtn = document.getElementById("next");
+      const images = Array.from(document.querySelectorAll(".gallery img"));
+
+      let currentIndex = 0;
+
+      function openModal(index) {
+        currentIndex = index;
+        const img = images[index];
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        captionText.textContent = img.alt;
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % images.length;
+        openModal(currentIndex);
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        openModal(currentIndex);
+      }
+
+      images.forEach((img, index) => {
+        img.addEventListener("click", () => openModal(index));
+      });
+
+      closeBtn.onclick = () => {
+        modal.style.display = "none";
+      };
+
+      prevBtn.onclick = showPrev;
+      nextBtn.onclick = showNext;
+
+      window.onclick = (event) => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      document.addEventListener("keydown", (e) => {
+        if (modal.style.display === "block") {
+          if (e.key === "ArrowRight") showNext();
+          else if (e.key === "ArrowLeft") showPrev();
+          else if (e.key === "Escape") modal.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

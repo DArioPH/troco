@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financiación - Royale Motors</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Estilo puntual para esta página */
+      main.financing-page {
+        min-height: calc(100vh - 100px);
+        padding: 2rem 1rem;
+      }
+
+      .finance-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .finance-details .option-card {
+        flex: 1 1 300px;
+        max-width: 350px;
+        background-color: #f9f9f9;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .finance-details .btn-ver-mas {
+        display: inline-block;
+        margin-top: 1rem;
+      }
+
+      .intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="header-top">
+          <a href="index.html">
+            <img src="logoRoyale.png" alt="Logo Royale" class="logo" />
+          </a>
+        </div>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="HíbridosyElectricos.html" class="nav-link"
+                >Coches Eléctricos e Híbridos</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a href="compra-financiacion.html" class="nav-link active"
+                >Compra y Financiación</a
+              >
+              <div class="dropdown-menu">
+                <a href="financiacion.html">Financiación</a>
+                <a href="ofertas.html">Ofertas Especiales</a>
+                <a href="seminuevos.html">Seminuevos</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Servicios y Accesorios</a>
+            </li>
+            <li class="nav-item">
+              <a href="Motor&Tecnología.html" class="nav-link"
+                >Motor & Tecnología</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="financing-page">
+      <div class="container">
+        <section class="intro">
+          <h1>Opciones de Financiación</h1>
+          <p>
+            En Royale Motors, te ayudamos a conducir el coche de tus sueños sin
+            complicaciones. Descubre nuestras soluciones financieras flexibles
+            diseñadas para adaptarse a tus necesidades y presupuesto.
+          </p>
+        </section>
+
+        <section class="finance-details">
+  <div class="option-card">
+    <h2>Crédito tradicional</h2>
+    <p>
+      Obtén tu coche en propiedad desde el primer día. Elige el plazo que más te convenga y paga cuotas fijas cada mes.
+    </p>
+    <p>
+      Ideal para quienes desean mantener su vehículo a largo plazo sin sorpresas en el coste.
+    </p>
+  </div>
+
+  <div class="option-card">
+    <h2>Financiación flexible</h2>
+    <p>
+      ¿Prefieres cambiar de coche cada pocos años? Esta opción te permite pagar menos mensualmente y decidir al final si lo cambias, lo devuelves o te lo quedas.
+    </p>
+    <p>
+      Perfecta para quienes valoran la libertad de elección y la renovación constante.
+    </p>
+  </div>
+
+  <div class="option-card">
+    <h2>Simulador de financiación</h2>
+    <p>
+      Calcula tu cuota mensual estimada en segundos. Personaliza el importe, la entrada inicial y el número de meses.
+    </p>
+    <a href="simulador.html" class="btn-ver-mas" target="_blank">Simular ahora</a>
+  </div>
+</section>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

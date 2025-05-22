@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simulador de Financiación - Royale Motors</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+      .simulador-container {
+        background: #1e1e1e;
+        padding: 30px;
+        border-radius: 12px;
+        width: 350px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      }
+      h1 {
+        text-align: center;
+        color: #4fc3f7;
+        margin-bottom: 25px;
+      }
+      label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 6px;
+        font-weight: 600;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: none;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+      button {
+        margin-top: 25px;
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      #resultado {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: center;
+        color: #4fc3f7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="simulador-container">
+      <h1>Simulador de Financiación</h1>
+      <label for="monto">Monto del préstamo (€):</label>
+      <input type="number" id="monto" placeholder="Ej: 15000" min="0" />
+
+      <label for="plazo">Plazo (meses):</label>
+      <input type="number" id="plazo" placeholder="Ej: 36" min="1" />
+
+      <label for="interes">Tasa de interés anual (%):</label>
+      <input
+        type="number"
+        id="interes"
+        placeholder="Ej: 5"
+        step="0.01"
+        min="0"
+      />
+
+      <button onclick="calcularCuota()">Calcular Cuota</button>
+
+      <p id="resultado"></p>
+    </div>
+
+    <script>
+      function calcularCuota() {
+        const monto = parseFloat(document.getElementById("monto").value);
+        const plazo = parseInt(document.getElementById("plazo").value);
+        const interesAnual = parseFloat(
+          document.getElementById("interes").value
+        );
+
+        if (!monto || !plazo || !interesAnual) {
+          document.getElementById("resultado").textContent =
+            "Por favor, completa todos los campos.";
+          return;
+        }
+
+        const interesMensual = interesAnual / 100 / 12;
+        const cuota =
+          (monto * interesMensual) / (1 - Math.pow(1 + interesMensual, -plazo));
+        document.getElementById(
+          "resultado"
+        ).textContent = `Cuota mensual aproximada: €${cuota.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>
